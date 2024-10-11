@@ -30,6 +30,18 @@ class AppTest extends IOTest {
 
         assertEquals(getOutput(), "2");
     }
+
+    @Test
+    @DisplayName("-1이 나와야 하는 테스트")
+    void checkMinusOneTest() {
+        setIn("3\n"
+                + "(()");
+
+        runMain();
+
+        assertEquals(getOutput(), "-1");
+    }
+
     void runMain() {
         try {
             App.main(new String[]{});
