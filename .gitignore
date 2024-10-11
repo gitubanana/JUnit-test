@@ -6,3 +6,6 @@ build
 
 # Ignore intellij .idea directory
 .idea
+
+# Ignore *.class files
+*.class
