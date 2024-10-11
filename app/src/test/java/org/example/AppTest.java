@@ -9,6 +9,16 @@ class AppTest {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
 class AppTest extends IOTest {
+    @Test
+    @DisplayName("1이 나와야 하는 테스트")
+    void checkOneTest() {
+        setIn("6\n"
+                + "()()()");
+
+        runMain();
+
+        assertEquals(getOutput(), "1");
+    }
     void runMain() {
         try {
             App.main(new String[]{});
