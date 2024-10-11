@@ -19,6 +19,17 @@ class AppTest extends IOTest {
 
         assertEquals(getOutput(), "1");
     }
+
+    @Test
+    @DisplayName("2가 나와야 하는 테스트")
+    void checkTwoTest() {
+        setIn("10\n"
+                + "(()))((())");
+
+        runMain();
+
+        assertEquals(getOutput(), "2");
+    }
     void runMain() {
         try {
             App.main(new String[]{});
