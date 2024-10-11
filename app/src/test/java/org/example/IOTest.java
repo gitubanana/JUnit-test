@@ -3,9 +3,11 @@ package org.example;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class IOTest {
+    static final private PrintStream systemOut = System.out;
     private ByteArrayOutputStream resultOut;
 
     void setIn(String input) {
@@ -15,7 +17,12 @@ public abstract class IOTest {
     @BeforeEach
     void setOut() {
         resultOut = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(resultOut)); // resultOut으로 System.out을 리디렉션
+        System.setOut(new PrintStream(resultOut)); // System.out을 resultOut 리디렉션
+    }
+
+    @AfterEach
+    void printOutputToSystemOut() {
+        systemOut.println(getOutput());
     }
 
     String getOutput() {
