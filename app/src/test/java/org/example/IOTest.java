@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class IOTest {
-    static final private PrintStream systemOut = System.out;
+    private static final PrintStream systemOut = System.out;
     private ByteArrayOutputStream resultOut;
 
     void setIn(String input) {
