@@ -44,20 +44,23 @@ public class App {
             this.dp = new int[tree.getVcnt() + 1][STATUS_CNT];
         }
 
-                    if (isPoppable(start, end)) {
-                        continue;
-                    }
+        private void dfs(int cur, int prev) {
+            dp[cur][SELECTED] = 1;
 
-                    stack.push(start);
+            for (Integer next : tree.getEdges(cur)) {
+                if (next == prev) {
+                    continue;
                 }
 
-                stack.push(end);
-                maxDepth = Math.max(maxDepth, stack.size());
-            }
+                dfs(next, cur);
 
-            if (stack.isEmpty()) {
-                return maxDepth;
+                dp[cur][SKIPPED] += dp[next][SELECTED];
+                dp[cur][SELECTED] += Math.min(
+                        dp[next][SKIPPED],
+                        dp[next][SELECTED]
+                );
             }
+        }
 
             return -1;
         }
