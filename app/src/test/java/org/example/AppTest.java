@@ -22,17 +22,12 @@ class AppTest extends IOTest {
     }
 
     @Test
-    @DisplayName("-1이 나와야 하는 테스트")
-    void checkMinusOneTest() {
-        setIn("3\n"
-                + "(()");
+    @Disabled // 문제에서 도시의 수가 1인 경우가 없다...
     @DisplayName("도시의 수가 1일 때 테스트")
     void oneTest() {
         setIn("1\n");
 
         runMain();
-
-        assertEquals(getOutput(), "-1");
         assertThat(getOutput()).isEqualTo("1");
     }
 
