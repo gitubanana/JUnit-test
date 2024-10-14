@@ -1,30 +1,24 @@
 package org.example;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest extends IOTest {
     @Test
-    @DisplayName("1이 나와야 하는 테스트")
-    void checkOneTest() {
-        setIn("6\n"
-                + "()()()");
+    @DisplayName("예제 테스트")
+    void sampleTest() {
+        setIn("5\n"
+                + "4 5\n"
+                + "4 2\n"
+                + "2 3\n"
+                + "1 2");
 
         runMain();
-
-        assertEquals(getOutput(), "1");
-    }
-
-    @Test
-    @DisplayName("2가 나와야 하는 테스트")
-    void checkTwoTest() {
-        setIn("10\n"
-                + "(()))((())");
-
-        runMain();
-
-        assertEquals(getOutput(), "2");
+        assertThat(getOutput()).isEqualTo("2");
     }
 
     @Test
