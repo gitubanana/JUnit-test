@@ -20,12 +20,14 @@ public class App {
             return edges[v];
         }
 
-        public int getMaxDepth() {
-            int maxDepth = 0;
-            Stack<Character> stack = new Stack<>();
         public void addEdge(int from, int to) {
             getEdges(from).add(to);
         }
+
+        public int getVcnt() {
+            return edges.length - 1;
+        }
+    }
 
             for (int i = 0; i < str.length(); ++i) {
                 char end = str.charAt(i);
