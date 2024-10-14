@@ -62,7 +62,9 @@ public class App {
             }
         }
 
-            return -1;
+        public int getMinPoliceCnt() {
+            dfs(ROOT, VIRTUAL_NODE);
+            return Math.min(dp[ROOT][SKIPPED], dp[ROOT][SELECTED]);
         }
     }
 
