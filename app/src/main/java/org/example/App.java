@@ -70,8 +70,20 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int vCnt = Integer.parseInt(br.readLine());
+        Tree tree = new Tree(vCnt);
 
-        br.readLine();
-        System.out.print(new Parenthesis(br.readLine()).getMaxDepth());
+        for (int e = 1; e < vCnt; ++e) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int from = Integer.parseInt(st.nextToken());
+            int to = Integer.parseInt(st.nextToken());
+
+            tree.addEdge(from, to);
+            tree.addEdge(to, from);
+        }
+
+        Ruler minho = new Ruler(tree);
+
+        System.out.println(minho.getMinPoliceCnt());
     }
 }
