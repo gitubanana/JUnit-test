@@ -23,6 +23,9 @@ public class App {
         public int getMaxDepth() {
             int maxDepth = 0;
             Stack<Character> stack = new Stack<>();
+        public void addEdge(int from, int to) {
+            getEdges(from).add(to);
+        }
 
             for (int i = 0; i < str.length(); ++i) {
                 char end = str.charAt(i);
