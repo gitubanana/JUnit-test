@@ -26,10 +26,14 @@ class AppTest extends IOTest {
     void checkMinusOneTest() {
         setIn("3\n"
                 + "(()");
+    @DisplayName("도시의 수가 1일 때 테스트")
+    void oneTest() {
+        setIn("1\n");
 
         runMain();
 
         assertEquals(getOutput(), "-1");
+        assertThat(getOutput()).isEqualTo("1");
     }
 
     void runMain() {
