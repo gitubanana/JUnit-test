@@ -2,14 +2,18 @@ package org.example;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class App {
-    static class Parenthesis {
-        String str;
+    static class Tree {
+        private ArrayList<Integer>[] edges;
 
-        public Parenthesis(String str) {
-            this.str = str;
+        public Tree(int vCnt) {
+            edges = new ArrayList[vCnt + 1];
+            for (int v = 1; v <= vCnt; ++v) {
+                edges[v] = new ArrayList<>();
+            }
         }
 
         private boolean isPoppable(char start, char end) {
