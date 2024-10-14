@@ -29,11 +29,20 @@ public class App {
         }
     }
 
-            for (int i = 0; i < str.length(); ++i) {
-                char end = str.charAt(i);
+    static class Ruler {
+        private static final int SKIPPED = 0;
+        private static final int SELECTED = 1;
+        private static final int STATUS_CNT = 2;
+        private static final int ROOT = 1;
+        private static final int VIRTUAL_NODE = 0;
 
-                if (!stack.isEmpty()) {
-                    char start = stack.pop();
+        private Tree tree;
+        private int[][] dp;
+
+        public Ruler(Tree tree) {
+            this.tree = tree; // 따로 할당하진 않는다. (new 없음)
+            this.dp = new int[tree.getVcnt() + 1][STATUS_CNT];
+        }
 
                     if (isPoppable(start, end)) {
                         continue;
