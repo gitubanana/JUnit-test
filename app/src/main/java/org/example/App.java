@@ -16,9 +16,8 @@ public class App {
             }
         }
 
-        private boolean isPoppable(char start, char end) {
-            return (start == '(' && end == ')')
-                    || (start == ')' && end == '(');
+        public ArrayList<Integer> getEdges(int v) {
+            return edges[v];
         }
 
         public int getMaxDepth() {
